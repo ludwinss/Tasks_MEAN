@@ -3,11 +3,14 @@ const morgan = require("morgan");
 
 //initialization
 const app = express();
+require("./database")
 
 //settings
 app.set("port", process.env.PORT || 3333);
 
 //middelwares
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
 app.use(morgan("dev"));
 
 //routes
